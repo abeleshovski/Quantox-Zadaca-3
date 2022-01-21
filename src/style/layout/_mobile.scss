@@ -1,0 +1,45 @@
+@media screen and (max-width: 420.9px) {
+  .startMenu {
+    position: relative;
+    width: 327px;
+    .startButton {
+      a {
+        left: 13%;
+      }
+    }
+  }
+  .board {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    .header {
+      margin-bottom: 20%;
+      width: 90%;
+      position: relative;
+      left: 1px;
+      .currentTurn {
+        position: relative;
+        left: 10px;
+        width: 100px;
+      }
+    }
+    .field {
+      grid-template-rows: 100px 100px 100px;
+      grid-template-columns: 100px 100px 100px;
+      grid-gap: 10px;
+
+      button {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .scores {
+      grid-template-columns: 100px 100px 100px;
+      position: sticky;
+      margin-top: 20%;
+      grid-gap: 10px;
+      div {
+        width: 100%;
+      }
+    }
+  }
+}

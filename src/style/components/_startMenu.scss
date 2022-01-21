@@ -1,0 +1,91 @@
+.startMenu {
+  position: relative;
+  top: 100px;
+  display: flex;
+  width: 460px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .tictactoe {
+    place-items: center;
+    img {
+      margin: 5px;
+      position: relative;
+      width: 30.49px;
+      height: 30.49px;
+    }
+  }
+  .toggleSettings {
+    h3 {
+      position: relative;
+      top: 10px;
+    }
+    margin: 40px;
+    width: 100%;
+    height: 245px;
+    background-color: $SemiDarkNavy;
+    box-shadow: inset 0px -8px 0px #10212a;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    .pickMark {
+      background-color: $DarkNavy;
+      width: 80%;
+      height: 74px;
+      border-radius: 15px;
+    }
+    h3 {
+      display: block;
+    }
+    .selected {
+      background-color: $Silver;
+      img {
+        filter: saturate(0) invert(100%);
+      }
+      transition: background-color 0.2s, filter 0.4s;
+    }
+    button {
+      position: relative;
+      top: 10px;
+      left: 8px;
+      width: 47%;
+      height: 54px;
+      border-radius: 15px;
+      border: 0;
+      background-color: transparent;
+      img {
+        width: 32px;
+        height: 32px;
+        filter: saturate(0);
+      }
+    }
+    p {
+      position: relative;
+      bottom: 10px;
+      color: #a8bfc9;
+    }
+  }
+  .startButton {
+    width: 100%;
+    height: 67px;
+    border: 0;
+    border-radius: 15px;
+    background-color: $Yellow;
+    box-shadow: inset 0px -8px 0px #cc8b13;
+    display: flex;
+    &:active {
+      position: relative;
+      top: 7px;
+      height: 60px;
+      box-shadow: inset 0px 0px 0px;
+    }
+    a {
+      position: relative;
+      top: 17px;
+      left: 23%;
+      text-decoration: none;
+      color: #212121;
+      font-size: 26px;
+    }
+  }
+}

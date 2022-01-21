@@ -1,0 +1,114 @@
+.board {
+  .header {
+    display: flex;
+    //spread all 3 items in the grid
+    position: relative;
+    left: -30px;
+    justify-content: space-around;
+    .tictactoe {
+      img {
+        position: relative;
+        top: 10px;
+        width: 30.49px;
+        height: 30.49px;
+      }
+    }
+    .currentTurn {
+      position: relative;
+      top: 2px;
+      left: 25px;
+      background-color: $SemiDarkNavy;
+      border: 0;
+      border-radius: 15px;
+      width: 140px;
+      height: 52px;
+      box-shadow: inset 0px -8px 0px #10212a;
+      display: flex;
+      span {
+        //center this span
+        align-self: center;
+        position: relative;
+        left: 25%;
+        img {
+          position: relative;
+          top: 3px;
+          left: -3px;
+          width: 20px;
+          height: 20px;
+          //grayscale img
+          filter: grayscale(100%);
+        }
+        font-size: 20px;
+        bottom: 5px;
+      }
+    }
+    button {
+      position: relative;
+      left: 30px;
+      width: 52px;
+      height: 52px;
+      border: 0;
+      border-radius: 15px;
+      background-color: $Silver;
+      box-shadow: inset 0px -5px 0px #80878a;
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    margin-bottom: 30px;
+  }
+  .field {
+    display: grid;
+    grid-template-rows: 140px 140px 140px;
+    grid-template-columns: 140px 140px 140px;
+    //set the gap between the cells
+    grid-gap: 10px;
+    position: relative;
+
+    button {
+      background-color: $SemiDarkNavy;
+      border: 0;
+      border-radius: 15px;
+      width: 140px;
+      height: 140px;
+      box-shadow: inset 0px -8px 0px #10212a;
+    }
+    img {
+      top: 0;
+      width: 64px;
+      height: 64px;
+    }
+  }
+  .scores {
+    position: relative;
+    top: 10px;
+    display: grid;
+    //3 columns
+    grid-template-columns: 140px 140px 140px;
+    grid-gap: 10px;
+    span,
+    p {
+      color: $DarkNavy;
+    }
+    span {
+      font-size: 30px;
+    }
+    div {
+      width: 140px;
+      height: 72px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+    }
+    .playerScore {
+      background-color: $LightBlue;
+    }
+    .ties {
+      background-color: $Silver;
+    }
+    .aiScore {
+      background-color: $LightYellow;
+    }
+  }
+}

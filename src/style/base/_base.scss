@@ -1,7 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap");
 @font-face {
-  font-family: "Atkinson Hyperlegible";
+  font-family: "Outfit", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -17,29 +16,15 @@
   padding: 0;
   box-sizing: border-box;
   font-weight: 400;
+  color: #fff;
 }
 
 body {
   font-size: 18px;
-
-  @include grid();
-  font-family: "Atkinson Hyperlegible";
-}
-
-button {
-  font-size: large;
-  font-weight: 400;
-}
-
-.game {
   display: grid;
-  grid-template-rows: 60px 60px 60px;
-  grid-template-columns: 60px 60px 60px;
-}
-
-.fuck {
-  button {
-    width: 50px;
-    height: 50px;
-  }
+  place-items: center;
+  margin-top: 20px;
+  font-family: "Outfit", sans-serif;
+  background-color: $DarkNavy;
+  //hide overflow x
 }
