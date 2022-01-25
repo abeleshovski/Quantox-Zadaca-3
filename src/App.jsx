@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import StartMenu from "./pages/StartMenu/StartMenu.jsx";
-import Board from "./pages/Game/Board.jsx";
+import Board from "./pages/Board/Board.jsx";
 
 const App = () => {
   return (

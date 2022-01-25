@@ -1,14 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { useDispatch } from "react-redux";
-import { setPlayer } from "../../redux/gameSettings";
+import { setPlayer } from "../../redux/game/settings";
 import X from "../../assets/icon-x.svg";
 import O from "../../assets/icon-o.svg";
 
 const StartMenu = () => {
-  const { player } = useSelector((state) => state.game);
-  const { ai } = useSelector((state) => state.game);
   const [xSelected, setXSelected] = React.useState("selected");
   const [oSelected, setOSelected] = React.useState("");
 

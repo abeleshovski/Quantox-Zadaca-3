@@ -1,5 +1,5 @@
-import { setPlayerScore, setAiScore, setTies } from "../redux/gameScores";
-import { setCurrentPlayer } from "../redux/gameStatus";
+import { setPlayerScore, setAiScore, setTies } from "../redux/game/scores";
+import { setCurrentPlayer } from "../redux/game/status";
 import { reset } from "./reset";
 
 const winConditions = [

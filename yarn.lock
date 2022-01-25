@@ -7134,6 +7134,11 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
+react-use-precision-timer@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-use-precision-timer/-/react-use-precision-timer-1.0.7.tgz#525bb3b909e2cb972978ce80c51a7b4961cd7481"
+  integrity sha512-54I8lnz1zrKFGBgK7KMw+/EZEn7M/y50eFSI8C8Quz17UpXGXCROpeHaD49Gw4pvHpOrgTS5zvBrLhNniBBLlQ==
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

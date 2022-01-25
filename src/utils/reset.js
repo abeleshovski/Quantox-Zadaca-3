@@ -1,4 +1,4 @@
-import { resetFields } from "../redux/gameStatus";
+import { resetFields } from "../redux/game/status";
 
 export const reset = (dispatch) => {
   dispatch(resetFields());

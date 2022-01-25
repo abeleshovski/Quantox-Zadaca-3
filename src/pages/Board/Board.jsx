@@ -10,9 +10,9 @@ import {
   setPlayerFields,
   setAiFields,
   setCurrentPlayer,
-} from "../../redux/gameStatus";
+} from "../../redux/game/status";
 import { reset } from "../../utils/reset";
-import { ScoreComponents } from "../../components/ScoreComponents";
+import { ScoreComponent } from "../../components/ScoreComponent";
 
 const Board = () => {
   const dispatch = useDispatch();
@@ -34,12 +34,10 @@ const Board = () => {
       randomNum -= 1;
     }
     if (!temp[randomNum].isClicked) {
-      setTimeout(() => {
-        dispatch(setCurrentPlayer(player));
-        temp[randomNum] = { value: ai, isClicked: true };
-        setFields(temp);
-        dispatch(setAiFields(randomNum));
-      }, 1000);
+      dispatch(setCurrentPlayer(player));
+      temp[randomNum] = { value: ai, isClicked: true };
+      setFields(temp);
+      dispatch(setAiFields(randomNum));
     } else {
       aiMove();
     }
@@ -56,16 +54,19 @@ const Board = () => {
   };
 
   useEffect(() => {
-    const status = checkIfSomeoneWon(
-      dispatch,
-      playerFields,
-      aiFields,
-      fields,
-      setFields
-    );
-    if (!status && currentPlayer === ai) {
-      aiMove();
-    }
+    const timer = setTimeout(() => {
+      const status = checkIfSomeoneWon(
+        dispatch,
+        playerFields,
+        aiFields,
+        fields,
+        setFields
+      );
+      if (!status && currentPlayer === ai) {
+        aiMove();
+      }
+    }, 1000);
+    return () => clearTimeout(timer);
   }, [fields, currentPlayer, playerFields, aiFields, ai, aiMove, dispatch]);
 
   return (
@@ -124,7 +125,7 @@ const Board = () => {
           </div>
         ))}
       </div>
-      <ScoreComponents
+      <ScoreComponent
         player={player}
         playerScore={playerScore}
         ties={ties}

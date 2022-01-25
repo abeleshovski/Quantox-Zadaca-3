@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
-import gameSettings from "./gameSettings";
-import gameScores from "./gameScores";
-import gameStatus from "./gameStatus";
+import gameSettings from "./game/settings";
+import gameScores from "./game/scores";
+import gameStatus from "./game/status";
 
 export default configureStore({
   reducer: {

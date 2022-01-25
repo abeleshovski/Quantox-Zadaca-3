@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ScoreComponents = ({ player, playerScore, ties, ai, aiScore }) => {
+export const ScoreComponent = ({ player, playerScore, ties, ai, aiScore }) => {
   return (
     <div className="scores">
       <div className="playerScore">

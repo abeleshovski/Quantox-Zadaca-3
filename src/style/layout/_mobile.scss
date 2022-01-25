@@ -11,6 +11,8 @@
   .board {
     overflow-x: hidden;
     overflow-y: hidden;
+    position: relative;
+    left: -10px;
     .header {
       margin-bottom: 20%;
       width: 90%;
