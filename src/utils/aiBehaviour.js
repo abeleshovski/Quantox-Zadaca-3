@@ -20,7 +20,7 @@ export const aiMove = (
       temp[randomNum] = { value: ai, isClicked: true };
       setFields(temp);
       dispatch(setAiFields(randomNum));
-    }, 1000);
+    }, 500);
   } else {
     aiMove();
   }

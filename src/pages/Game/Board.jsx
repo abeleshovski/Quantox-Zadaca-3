@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { motion } from "framer-motion";
 
@@ -12,6 +12,7 @@ import {
   setCurrentPlayer,
 } from "../../redux/gameStatus";
 import { reset } from "../../utils/reset";
+import { ScoreComponents } from "../../components/ScoreComponents";
 
 const Board = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const Board = () => {
     (state) => state.status
   );
 
-  const aiMove = () => {
+  const aiMove = useCallback(() => {
     let randomNum = Math.floor(Math.random() * 10);
     let temp = fields.slice();
     if (fields.every((field) => field.isClicked)) return;
@@ -42,7 +43,7 @@ const Board = () => {
     } else {
       aiMove();
     }
-  };
+  }, [fields, dispatch, player, ai]);
 
   const handleClick = (id) => {
     if (currentPlayer === player) {
@@ -65,7 +66,7 @@ const Board = () => {
     if (!status && currentPlayer === ai) {
       aiMove();
     }
-  });
+  }, [fields, currentPlayer, playerFields, aiFields, ai, aiMove, dispatch]);
 
   return (
     <div className="board">
@@ -123,20 +124,13 @@ const Board = () => {
           </div>
         ))}
       </div>
-      <div className="scores">
-        <div className="playerScore">
-          <p>{player} (You)</p>
-          <span>{playerScore} </span>
-        </div>
-        <div className="ties">
-          <p>Ties</p>
-          <span>{ties} </span>
-        </div>
-        <div className="aiScore">
-          <p>{ai} (CPU)</p>
-          <span>{aiScore} </span>
-        </div>
-      </div>
+      <ScoreComponents
+        player={player}
+        playerScore={playerScore}
+        ties={ties}
+        ai={ai}
+        aiScore={aiScore}
+      />
     </div>
   );
 };
