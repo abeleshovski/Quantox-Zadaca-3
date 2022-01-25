@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Quantox-Zadaca-3/static/css/main.91ed9041.css",
+    "main.js": "/Quantox-Zadaca-3/static/js/main.5705363f.js",
+    "index.html": "/Quantox-Zadaca-3/index.html",
+    "static/media/icon-restart.svg": "/Quantox-Zadaca-3/static/media/icon-restart.5233068679491c1d7f0fb92e28e7953e.svg",
+    "static/media/icon-x.svg": "/Quantox-Zadaca-3/static/media/icon-x.0b42b1fa90bcc26b3e3f3e23513df1aa.svg",
+    "static/media/icon-o.svg": "/Quantox-Zadaca-3/static/media/icon-o.7608cc08ec6b0a3d77ec15ebb57db3b2.svg",
+    "main.91ed9041.css.map": "/Quantox-Zadaca-3/static/css/main.91ed9041.css.map",
+    "main.5705363f.js.map": "/Quantox-Zadaca-3/static/js/main.5705363f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.91ed9041.css",
+    "static/js/main.5705363f.js"
+  ]
+}
