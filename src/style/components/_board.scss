@@ -1,4 +1,6 @@
 .board {
+  position: relative;
+  top: 7vh;
   .header {
     display: flex;
     //spread all 3 items in the grid
@@ -60,10 +62,7 @@
   }
   .field {
     display: grid;
-    grid-template-rows: 140px 140px 140px;
-    grid-template-columns: 140px 140px 140px;
-    //set the gap between the cells
-    grid-gap: 10px;
+    @include gridSizeDesktop;
     position: relative;
 
     button {
@@ -85,8 +84,7 @@
     top: 10px;
     display: grid;
     //3 columns
-    grid-template-columns: 140px 140px 140px;
-    grid-gap: 10px;
+    @include gridSizeDesktop;
     span,
     p {
       color: $DarkNavy;

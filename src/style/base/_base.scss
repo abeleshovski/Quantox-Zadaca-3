@@ -23,8 +23,8 @@ body {
   font-size: 18px;
   display: grid;
   place-items: center;
-  margin-top: 20px;
   font-family: "Outfit", sans-serif;
   background-color: $DarkNavy;
-  //hide overflow x
+  min-height: 100vh;
+  overflow-y: hidden;
 }

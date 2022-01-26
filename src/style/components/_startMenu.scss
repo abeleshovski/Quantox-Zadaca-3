@@ -1,6 +1,5 @@
 .startMenu {
   position: relative;
-  top: 100px;
   display: flex;
   width: 460px;
   flex-direction: column;
@@ -65,27 +64,34 @@
       color: #a8bfc9;
     }
   }
-  .startButton {
+  .startButtons {
     width: 100%;
-    height: 67px;
-    border: 0;
-    border-radius: 15px;
-    background-color: $Yellow;
-    box-shadow: inset 0px -8px 0px #cc8b13;
-    display: flex;
-    &:active {
+    height: 70px;
+    .startVsCpu {
+      width: 100%;
+      height: 67px;
+      border: 0;
+      border-radius: 15px;
+      background-color: $Yellow;
+      box-shadow: inset 0px -8px 0px #cc8b13;
+      display: flex;
       position: relative;
-      top: 7px;
-      height: 60px;
-      box-shadow: inset 0px 0px 0px;
-    }
-    a {
-      position: relative;
-      top: 17px;
-      left: 23%;
-      text-decoration: none;
-      color: #212121;
-      font-size: 26px;
+      top: -5px;
+      &:active {
+        top: 5px;
+        height: 60px;
+        box-shadow: inset 0px 0px 0px #cc8b13;
+        transition: all 0.2s;
+      }
+
+      a {
+        position: relative;
+        top: 17px;
+        left: 23%;
+        text-decoration: none;
+        color: #212121;
+        font-size: 26px;
+      }
     }
   }
 }

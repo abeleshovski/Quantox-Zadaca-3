@@ -1,0 +1,12 @@
+@mixin gridSizeDesktop {
+  grid-template-rows: 140px 140px 140px;
+  grid-template-columns: 140px 140px 140px;
+
+  grid-gap: 10px;
+}
+
+@mixin gridSizeMobile {
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+}

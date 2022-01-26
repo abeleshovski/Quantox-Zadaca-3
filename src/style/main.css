@@ -157,14 +157,14 @@ body {
   display: -ms-grid;
   display: grid;
   place-items: center;
-  margin-top: 20px;
   font-family: "Outfit", sans-serif;
   background-color: #1a2a33;
+  min-height: 100vh;
+  overflow-y: hidden;
 }
 
 .startMenu {
   position: relative;
-  top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,7 +258,12 @@ body {
   color: #a8bfc9;
 }
 
-.startMenu .startButton {
+.startMenu .startButtons {
+  width: 100%;
+  height: 70px;
+}
+
+.startMenu .startButtons .startVsCpu {
   width: 100%;
   height: 67px;
   border: 0;
@@ -269,23 +274,31 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.startMenu .startButton:active {
   position: relative;
-  top: 7px;
-  height: 60px;
-  -webkit-box-shadow: inset 0px 0px 0px;
-          box-shadow: inset 0px 0px 0px;
+  top: -5px;
 }
 
-.startMenu .startButton a {
+.startMenu .startButtons .startVsCpu:active {
+  top: 5px;
+  height: 60px;
+  -webkit-box-shadow: inset 0px 0px 0px #cc8b13;
+          box-shadow: inset 0px 0px 0px #cc8b13;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.startMenu .startButtons .startVsCpu a {
   position: relative;
   top: 17px;
   left: 23%;
   text-decoration: none;
   color: #212121;
   font-size: 26px;
+}
+
+.board {
+  position: relative;
+  top: 7vh;
 }
 
 .board .header {
@@ -391,6 +404,8 @@ body {
   top: 10px;
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: 140px 140px 140px;
+      grid-template-rows: 140px 140px 140px;
   -ms-grid-columns: 140px 140px 140px;
       grid-template-columns: 140px 140px 140px;
   grid-gap: 10px;
@@ -431,12 +446,13 @@ body {
     position: relative;
     width: 327px;
   }
-  .startMenu .startButton a {
+  .startMenu .startButtons .startVsCpu a {
     left: 13%;
   }
   .board {
     overflow-x: hidden;
     overflow-y: hidden;
+    position: relative;
   }
   .board .header {
     margin-bottom: 20%;

@@ -44,8 +44,10 @@ const StartMenu = () => {
         </div>
         <p>REMEMBER, X GOES FIRST!</p>
       </div>
-      <div className="startButton">
-        <Link to="/game">NEW GAME (VS CPU)</Link>
+      <div className="startButtons">
+        <div className="startVsCpu">
+          <Link to="/game">NEW GAME (VS CPU)</Link>
+        </div>
       </div>
     </div>
   );

@@ -1,17 +1,17 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import StartMenu from "./pages/StartMenu/StartMenu.jsx";
 import Board from "./pages/Board/Board.jsx";
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route exact path="/" element={<StartMenu />} />
           <Route path="/game" element={<Board />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };

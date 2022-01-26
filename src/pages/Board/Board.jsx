@@ -1,18 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import X from "../../assets/icon-x.svg";
 import O from "../../assets/icon-o.svg";
-import iconRestart from "../../assets/icon-restart.svg";
+
 import { checkIfSomeoneWon } from "../../utils/checkWin";
 import {
   setPlayerFields,
   setAiFields,
   setCurrentPlayer,
 } from "../../redux/game/status";
-import { reset } from "../../utils/reset";
+
 import { ScoreComponent } from "../../components/ScoreComponent";
+import { RestartButton } from "../../components/RestartButton";
 
 const Board = () => {
   const dispatch = useDispatch();
@@ -83,45 +84,42 @@ const Board = () => {
               <img src={X} alt="X" />
             ) : (
               <img src={O} alt="O" />
-            )}{" "}
+            )}
             Turn
           </span>
         </div>
         <div>
-          <button
-            className="restart"
-            onClick={() => setFields(reset(dispatch))}
-          >
-            <img src={iconRestart} alt="restart" />
-          </button>
+          <RestartButton setFields={setFields} />
         </div>
       </div>
       <div className="field">
         {fields.map((row, rowIndex) => (
           <div className="field" key={rowIndex}>
-            {!row.isClicked ? (
-              <button onClick={() => handleClick(rowIndex)}>{row.value}</button>
-            ) : (
-              <button>
-                {row.value === "X" ? (
-                  <motion.img
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    src={X}
-                    alt="X"
-                  />
-                ) : (
-                  <motion.img
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    src={O}
-                    alt="O"
-                  />
-                )}
-              </button>
-            )}
+            <AnimatePresence>
+              {!row.isClicked ? (
+                <button onClick={() => handleClick(rowIndex)}>
+                  {row.value}
+                </button>
+              ) : (
+                <button>
+                  {row.value === "X" ? (
+                    <motion.img
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      src={X}
+                      alt="X"
+                    />
+                  ) : (
+                    <motion.img
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      src={O}
+                      alt="O"
+                    />
+                  )}
+                </button>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

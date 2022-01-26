@@ -16,7 +16,6 @@ const winConditions = [
 const checkWin = (selectedFields) => {
   let flag = false;
   winConditions.forEach((condition) => {
-    //destructure condition and check if all fields are equal
     const [a, b, c] = condition;
     if (
       selectedFields.includes(a) &&
@@ -40,26 +39,17 @@ export const checkIfSomeoneWon = (
   const playerWin = checkWin(playerFields);
   const aiWin = checkWin(aiFields);
   let flag = false;
-  let winner;
   if (playerWin) {
     flag = true;
-    winner = "player";
     dispatch(setPlayerScore());
   } else if (aiWin) {
     dispatch(setAiScore());
     flag = true;
-    winner = "ai";
   } else if (fields.every((item) => item.isClicked)) {
     dispatch(setTies());
     flag = true;
-    winner = "draw";
   }
   if (flag) {
-    if (winner === "draw") {
-      alert(`${winner}`);
-    } else {
-      alert(`${winner} won the game`);
-    }
     dispatch(setCurrentPlayer("X"));
     setFields(reset(dispatch));
     return true;
