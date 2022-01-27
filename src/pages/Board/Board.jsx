@@ -14,6 +14,8 @@ import {
 
 import { ScoreComponent } from "../../components/ScoreComponent";
 import { RestartButton } from "../../components/RestartButton";
+import OimageComponent from "../../components/OimageComponent";
+import XimageComponent from "../../components/xImageComponent";
 
 const Board = () => {
   const dispatch = useDispatch();
@@ -21,7 +23,6 @@ const Board = () => {
     Array(9).fill({ value: null, isClicked: false })
   );
   const { player, ai } = useSelector((state) => state.game);
-  const { playerScore, aiScore, ties } = useSelector((state) => state.scores);
 
   const { playerFields, aiFields, currentPlayer } = useSelector(
     (state) => state.status
@@ -103,19 +104,9 @@ const Board = () => {
               ) : (
                 <button>
                   {row.value === "X" ? (
-                    <motion.img
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      src={X}
-                      alt="X"
-                    />
+                    <XimageComponent />
                   ) : (
-                    <motion.img
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      src={O}
-                      alt="O"
-                    />
+                    <OimageComponent />
                   )}
                 </button>
               )}
@@ -123,13 +114,7 @@ const Board = () => {
           </div>
         ))}
       </div>
-      <ScoreComponent
-        player={player}
-        playerScore={playerScore}
-        ties={ties}
-        ai={ai}
-        aiScore={aiScore}
-      />
+      <ScoreComponent player={player} ai={ai} />
     </div>
   );
 };

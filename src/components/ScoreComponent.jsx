@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export const ScoreComponent = ({ player, playerScore, ties, ai, aiScore }) => {
+export const ScoreComponent = ({ player, ai }) => {
+  const { playerScore, aiScore, ties } = useSelector((state) => state.scores);
   return (
     <div className="scores">
       <div className="playerScore">
