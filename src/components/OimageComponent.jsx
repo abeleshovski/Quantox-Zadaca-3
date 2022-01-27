@@ -1,16 +1,19 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
 import O from "../assets/icon-o.svg";
 
 const OimageComponent = () => {
   return (
-    <motion.img
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      src={O}
-      alt="O"
-    />
+    <AnimatePresence>
+      <motion.img
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        src={O}
+        alt="O"
+      />
+    </AnimatePresence>
   );
 };
 

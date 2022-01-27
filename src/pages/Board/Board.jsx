@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import X from "../../assets/icon-x.svg";
 import O from "../../assets/icon-o.svg";
@@ -15,7 +15,8 @@ import {
 import { ScoreComponent } from "../../components/ScoreComponent";
 import { RestartButton } from "../../components/RestartButton";
 import OimageComponent from "../../components/OimageComponent";
-import XimageComponent from "../../components/xImageComponent";
+import XimageComponent from "../../components/XimageComponent";
+import HeaderComponent from "../../components/HeaderComponent";
 
 const Board = () => {
   const dispatch = useDispatch();
@@ -73,44 +74,17 @@ const Board = () => {
 
   return (
     <div className="board">
-      <div className="header">
-        <div className="tictactoe">
-          <img src={X} alt="X" />
-
-          <img src={O} alt="O" />
-        </div>
-        <div className="currentTurn">
-          <span>
-            {currentPlayer === "X" ? (
-              <img src={X} alt="X" />
-            ) : (
-              <img src={O} alt="O" />
-            )}
-            Turn
-          </span>
-        </div>
-        <div>
-          <RestartButton setFields={setFields} />
-        </div>
-      </div>
+      <HeaderComponent currentPlayer={currentPlayer} setFields={setFields} />
       <div className="field">
         {fields.map((row, rowIndex) => (
           <div className="field" key={rowIndex}>
-            <AnimatePresence>
-              {!row.isClicked ? (
-                <button onClick={() => handleClick(rowIndex)}>
-                  {row.value}
-                </button>
-              ) : (
-                <button>
-                  {row.value === "X" ? (
-                    <XimageComponent />
-                  ) : (
-                    <OimageComponent />
-                  )}
-                </button>
-              )}
-            </AnimatePresence>
+            {!row.isClicked ? (
+              <button onClick={() => handleClick(rowIndex)}>{row.value}</button>
+            ) : (
+              <button>
+                {row.value === "X" ? <XimageComponent /> : <OimageComponent />}
+              </button>
+            )}
           </div>
         ))}
       </div>
