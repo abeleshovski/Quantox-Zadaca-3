@@ -1,9 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React from "react";
 
-import O from "../assets/icon-o.svg";
+import O from "../../assets/icon-o.svg";
 
-const OimageComponent = () => {
+const Oimage = ({ isVisible }) => {
   return (
     <AnimatePresence>
       <motion.img
@@ -17,4 +17,4 @@ const OimageComponent = () => {
   );
 };
 
-export default OimageComponent;
+export default Oimage;

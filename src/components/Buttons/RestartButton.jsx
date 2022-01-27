@@ -1,8 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import iconRestart from "../assets/icon-restart.svg";
-import { setCurrentPlayer } from "../redux/game/status";
-import { reset } from "../utils/reset";
+import iconRestart from "../../assets/icon-restart.svg";
+import { setCurrentPlayer } from "../../redux/game/status";
+import { reset } from "../../utils/reset";
 
 export const RestartButton = ({ setFields }) => {
   const dispatch = useDispatch();

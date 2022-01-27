@@ -1,8 +1,8 @@
 import React from "react";
-import X from "../assets/icon-x.svg";
-import O from "../assets/icon-o.svg";
-import { RestartButton } from "./RestartButton";
-const HeaderComponent = ({ currentPlayer, setFields }) => {
+import X from "../../assets/icon-x.svg";
+import O from "../../assets/icon-o.svg";
+import { RestartButton } from "../Buttons/RestartButton";
+const Header = ({ currentPlayer, setFields }) => {
   return (
     <div className="header">
       <div className="tictactoe">
@@ -26,4 +26,4 @@ const HeaderComponent = ({ currentPlayer, setFields }) => {
   );
 };
 
-export default HeaderComponent;
+export default Header;

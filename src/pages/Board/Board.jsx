@@ -1,9 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { AnimatePresence } from "framer-motion";
-
-import X from "../../assets/icon-x.svg";
-import O from "../../assets/icon-o.svg";
 
 import { checkIfSomeoneWon } from "../../utils/checkWin";
 import {
@@ -13,16 +9,14 @@ import {
 } from "../../redux/game/status";
 
 import { ScoreComponent } from "../../components/ScoreComponent";
-import { RestartButton } from "../../components/RestartButton";
-import OimageComponent from "../../components/OimageComponent";
-import XimageComponent from "../../components/XimageComponent";
-import HeaderComponent from "../../components/HeaderComponent";
+import { nullValueArray } from "../../utils/Array/nullValueArray";
+import Oimage from "../../components/ImageComponents/Oimage";
+import Ximage from "../../components/ImageComponents/Ximage";
+import Header from "../../components/HeaderComponents/Header";
 
 const Board = () => {
   const dispatch = useDispatch();
-  const [fields, setFields] = useState(
-    Array(9).fill({ value: null, isClicked: false })
-  );
+  const [fields, setFields] = useState(nullValueArray);
   const { player, ai } = useSelector((state) => state.game);
 
   const { playerFields, aiFields, currentPlayer } = useSelector(
@@ -70,11 +64,12 @@ const Board = () => {
       }
     }, 1000);
     return () => clearTimeout(timer);
-  }, [fields, currentPlayer, playerFields, aiFields, ai, aiMove, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fields]);
 
   return (
     <div className="board">
-      <HeaderComponent currentPlayer={currentPlayer} setFields={setFields} />
+      <Header currentPlayer={currentPlayer} setFields={setFields} />
       <div className="field">
         {fields.map((row, rowIndex) => (
           <div className="field" key={rowIndex}>
@@ -82,7 +77,11 @@ const Board = () => {
               <button onClick={() => handleClick(rowIndex)}>{row.value}</button>
             ) : (
               <button>
-                {row.value === "X" ? <XimageComponent /> : <OimageComponent />}
+                {row.value === "X" ? (
+                  <Ximage isVisible={row.isClicked} />
+                ) : (
+                  <Oimage isVisible={row.isClicked} />
+                )}
               </button>
             )}
           </div>

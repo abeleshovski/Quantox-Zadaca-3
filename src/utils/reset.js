@@ -1,7 +1,7 @@
 import { resetFields } from "../redux/game/status";
+import { nullValueArray } from "./Array/nullValueArray";
 
 export const reset = (dispatch) => {
   dispatch(resetFields());
-  const resetGame = Array(9).fill({ value: null, isClicked: false });
-  return resetGame;
+  return nullValueArray;
 };
